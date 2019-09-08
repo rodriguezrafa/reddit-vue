@@ -6,10 +6,11 @@
       {{post.data.author}}
       <span class="date">{{post.data.created}}</span>
     </h4>
-    <div class="body">
-      <div 
-        class="wrapper-img"
-      >
+    <div 
+      class="body"
+      @click="displayPost"
+    >
+      <div   class="wrapper-img">
         <img :src="getThumbnail">
       </div>
       <div class="wrapper-content">
@@ -25,7 +26,6 @@
       </span>
       <span class="comments">{{post.data.num_comments}} Comments</span>
     </div>
-    clicked: {{post.data.clicked}}
   </div>
 </template>
 
@@ -46,6 +46,11 @@ export default {
     index: {
       type: Number,
     }
+   },
+   methods: {
+     displayPost: function() {
+       this.$store.dispatch('displayPost', this.index);
+     },
    },
    computed: {
      getThumbnail: function() {
@@ -80,6 +85,7 @@ export default {
       border-radius: 50%;
       background-color: rgb(14, 49, 143);
       margin-right: 10px;
+      transition: background-color 0.3s;
 
       &.--clicked {
         background-color: transparent;

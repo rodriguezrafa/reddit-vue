@@ -1312,15 +1312,33 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    SET_POST: function(state, payload) {
+    SET_POSTS_LIST: function(state, payload) {
       state.postList = payload;
+    },
+    CHANGE_POST: function(state, payload) {
+      state.postDetail = payload;
     }
   },
   actions: {
-    getPosts: async function({commit}, payload) {
+    getPosts: async function({commit, state}, payload) {
       // axios for hitting reddit API and compare
-      // if response different from local, set localStora for persistingdata
-      commit('SET_POST', payload.data.children)
+      const localStoraList =  JSON.parse(window.localStorage.getItem('reddit_postslist'));
+      let newPayload = null;
+      if (localStoraList.length === 25) { // change 25 for axios.response.length
+        newPayload = localStoraList;
+      } else {
+        //using axios.response.data.children instead of payload.data.children
+        newPayload =  payload.data.children;
+      }
+      commit('SET_POSTS_LIST', newPayload);
+    },
+    displayPost: async function({state, commit}, payload) {
+      const postToDiplay = state.postList[payload].data;
+      commit('CHANGE_POST', postToDiplay);
+      if (!postToDiplay.clicked) {
+        state.postList[payload].data.clicked = true;
+        window.localStorage.setItem('reddit_postslist', JSON.stringify(state.postList));
+      }
     } 
   }
 });

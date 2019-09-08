@@ -9,7 +9,6 @@
     </div>
 
     <h4>{{details.title}}</h4>
-    <div v-if="details.selftext_html" v-html="details.selftext_html"></div>
   </div>
 </template>
 

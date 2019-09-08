@@ -1,6 +1,6 @@
 <template>
   <div class="PostList">
-    <h2 class="title">PostList</h2>
+    <h2 class="title">Reddit Posts</h2>
     <transition-group>
       <PostCard 
         v-for="(post, i) in data"
