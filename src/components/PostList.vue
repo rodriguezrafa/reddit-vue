@@ -1,7 +1,8 @@
 <template>
   <div class="PostList">
     <h1>PostList</h1>
-    <PostCard />
+    <PostCard/>
+    {{data}}
   </div>
 </template>
 
@@ -9,7 +10,11 @@
   import PostCard from "@/components/PostCard.vue";
   export default {
     name: "PostList",
-    props: {},
+    props: {
+      data: {
+        type: Array,
+      },
+    },
     components: {
       PostCard,
     },

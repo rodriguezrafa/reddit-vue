@@ -13,3 +13,8 @@ I created a Trello Kanban board to keep track of each step just for this test be
 1. Layout & Responsiveness
 
     There's a simple flexbox grid. The left column will hide at 992px or less and there will be a toggle menu button to show the post list
+
+
+2. Initial configurations for vuex
+
+    I'll use the vue store management (vuex) to have all the posts and the variables centralized so I don't have to send data to child component via prop

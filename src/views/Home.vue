@@ -10,7 +10,7 @@
       class="wrapper-list"
       :class="{'--show': menuVisible}"
     >
-      <PostList />
+      <PostList :data="this.$store.state.postList" />
     </div>
     <div class="wrapper-detail">
       <PostDetail />

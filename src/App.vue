@@ -7,6 +7,13 @@
 <script>
 export default {
   components: {
+  },
+  created: function() {
+    const localPosts = window.localStorage.getItem('rr_reddit_posts');
+    // just execute action after hitting reddit endpoint, remove payload sent
+    if (!localPosts) {
+      this.$store.dispatch('getPosts', this.$store.state.dummyObject);
+    }
   }
 }
 </script>
