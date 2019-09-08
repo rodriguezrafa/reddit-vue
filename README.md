@@ -18,3 +18,9 @@ I created a Trello Kanban board to keep track of each step just for this test be
 2. Initial configurations for vuex
 
     I'll use the vue store management (vuex) to have all the posts and the variables centralized so I don't have to send data to child component via prop
+
+3. Look&feel and data implementation
+
+    Added styles for the SPA, hover transitions, icons (took a bit of time looking for the assets and modifiying them to match the request).
+
+    Also implemented the data in the store to render the post list and the detail showed

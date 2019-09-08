@@ -4,7 +4,7 @@
       class="menu"
       @click="toggleMenu"
     >
-      Icon
+      <img src="../assets/menu.svg">
     </div>
     <div 
       class="wrapper-list"
@@ -13,7 +13,7 @@
       <PostList :data="this.$store.state.postList" />
     </div>
     <div class="wrapper-detail">
-      <PostDetail />
+      <PostDetail :details="$store.state.postDetail" />
     </div>
   </div>
 </template>
@@ -48,14 +48,16 @@
 
     > div {
       min-height: 100vh;
+      box-sizing: border-box;
     }
 
     .wrapper-list {
-      background-color: skyblue;
+      background-color: #000;
+      color: #ddd;
       width: 100%;
       max-width: 400px;
       text-align: left;
-      padding: 0px 5px 30px;
+      padding: 0px;
 
       @media (max-width: 992px) {
         position: absolute;
@@ -71,18 +73,28 @@
     }
 
     .wrapper-detail {
-      background-color: salmon;
-      width: 100%;
+      width: 70%;
       padding: 30px 5px;
+
+      @media (max-width: 992px) {
+        width: 100%;
+      }
     }
 
     .menu {
       display: none;
       position: fixed;
-      top: 20px;
+      top: 10px;
       left: 20px;
       z-index: 300;
-      padding: 0;
+      padding: 5px;
+      background-color: #222;
+      min-height: 0;
+
+      img {
+        width: 25px;
+        display: block;
+      }
 
       @media (max-width: 992px) {
           display: block;
