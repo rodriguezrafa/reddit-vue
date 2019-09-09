@@ -5,16 +5,30 @@
       class="wrapper-image"
       v-if="details.thumbnail"
     >
-      <img :src="details.thumbnail" alt="">
+      <img :src="details.thumbnail" @click="showModal = true">
     </div>
 
     <h4>{{details.title}}</h4>
+    <Modal 
+      :show="showModal"
+      :image="details.thumbnail"
+      @close="showModal = false"
+    />
   </div>
 </template>
 
 <script>
+import Modal from "@/components/Modal.vue";
 export default {
   name: "PostDetail",
+  data: function() {
+    return {
+      showModal: false,
+    }
+  },
+  components: {
+    Modal,
+  },
   props: {
     details: {
       type: Object,
