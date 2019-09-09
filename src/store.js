@@ -1317,6 +1317,12 @@ export default new Vuex.Store({
     },
     CHANGE_POST: function(state, payload) {
       state.postDetail = payload;
+    },
+    DISMISS_POST: function(state, payload) {
+      state.postList.splice(payload, 1);
+    },
+    DISMISS_ALL: function(state) {
+      state.postList = [];
     }
   },
   actions: {
@@ -1339,6 +1345,12 @@ export default new Vuex.Store({
         state.postList[payload].data.clicked = true;
         window.localStorage.setItem('reddit_postslist', JSON.stringify(state.postList));
       }
+    },
+    dismissPost: function({commit}, payload) {
+      commit('DISMISS_POST', payload);
+    },
+    dismissAll: function({commit}) {
+      commit('DISMISS_ALL');
     } 
   }
 });

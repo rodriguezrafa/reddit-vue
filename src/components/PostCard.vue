@@ -21,7 +21,10 @@
       </div>
     </div>
     <div class="footer">
-      <span class="dismiss">
+      <span 
+        class="dismiss"
+        @click="dismissPost"
+      >
         <img src="../assets/cancel-circle.svg"> Dismiss Post
       </span>
       <span class="comments">{{post.data.num_comments}} Comments</span>
@@ -50,6 +53,9 @@ export default {
    methods: {
      displayPost: function() {
        this.$store.dispatch('displayPost', this.index);
+     },
+     dismissPost: function() {
+       this.$store.dispatch('dismissPost', this.index);
      },
    },
    computed: {
