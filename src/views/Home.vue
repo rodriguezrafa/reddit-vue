@@ -12,7 +12,10 @@
     >
       <PostList :data="this.$store.state.postList" />
     </div>
-    <div class="wrapper-detail">
+    <div 
+      class="wrapper-detail"
+      @click="closeMenu"
+    >
       <PostDetail :details="$store.state.postDetail" />
     </div>
   </div>
@@ -31,6 +34,9 @@
     methods: {
       toggleMenu: function() {
         this.$store.dispatch('toggleMenu');
+      },
+      closeMenu: function() {
+        this.$store.dispatch('closeMenu');
       }
     },
   };

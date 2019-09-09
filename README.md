@@ -14,6 +14,8 @@ I created a Trello Kanban board to keep track of each step just for this test be
 
     There's a simple flexbox grid. The left column will hide at 992px or less and there will be a toggle menu button to show the post list
 
+    Instead of adding a swipe library for displaying the posts list on mobile I added a hamburger button to toggle the menu. I believe it improves the UX because there's no clue that in mobile is a hidden menu on the left side of the screen
+
 
 2. Initial configurations for vuex
 
@@ -25,7 +27,9 @@ I created a Trello Kanban board to keep track of each step just for this test be
 
     Added styles for the SPA, hover transitions, icons (took a bit of time looking for the assets and modifiying them to match the request).
 
-    Also implemented the data in the store to render the post list and the detail showed. The creation date comes in UTC format, so I used moment.js library to get the correct one
+    Also implemented the data in the store to render the post list and the detail showed. The creation date comes in UTC format, so I used moment.js library to get the correct one.
+
+    Not all the posts come with thumbnail image, so I added a placeholder image for those cases
 
 4. Post Details.
 

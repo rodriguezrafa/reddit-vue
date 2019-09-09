@@ -3,9 +3,12 @@
     <h2 class="title">{{details.author}}</h2>
     <div 
       class="wrapper-image"
-      v-if="details.thumbnail"
+      v-if="details.thumbnail && details.thumbnail != 'self' && details.thumbnail != 'default'"
     >
-      <img :src="details.thumbnail" @click="showModal = true">
+      <img 
+        :src="details.thumbnail"
+        @click="showModal = true"
+      >
     </div>
 
     <h4>{{details.title}}</h4>
@@ -48,6 +51,10 @@ export default {
 
     .wrapper-image {
       text-align: center;
+    }
+
+    img:hover {
+      cursor:pointer;
     }
   }
 </style>
