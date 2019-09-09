@@ -43,3 +43,9 @@ I created a Trello Kanban board to keep track of each step just for this test be
 
     For fetching the data I used axios in the App.vue component as soon it is created and send the response object to vuex via action to be compared with the localStorage in case it applies or saving the posts list directly
 
+7. Fixes
+
+    I setted up the enviroment for deployment. Now the posts list closes on mobile after clicking one post
+
+
+#### Avaible at: https://www.rodriguezrafa.com/vue-test

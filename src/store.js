@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    menuIsOpen: false,
     localList: {},
     postList:{},
     postDetail: {}
@@ -21,6 +22,12 @@ export default new Vuex.Store({
     },
     DISMISS_ALL: function(state) {
       state.postList = [];
+    },
+    CLOSE_MENU: function(state) {
+      state.menuIsOpen = false;
+    },
+    TOGGLE_MENU: function(state) {
+      state.menuIsOpen = !state.menuIsOpen;
     }
   },
   actions: {
@@ -49,6 +56,12 @@ export default new Vuex.Store({
     },
     dismissAll: function({commit}) {
       commit('DISMISS_ALL');
+    },
+    closeMenu: function({commit}) {
+      commit('CLOSE_MENU');
+    },
+    toggleMenu: function({commit}) {
+      commit('TOGGLE_MENU');
     } 
   }
 });

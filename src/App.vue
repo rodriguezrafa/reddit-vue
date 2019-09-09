@@ -11,6 +11,8 @@ export default {
   created: function() {
     this.axios.get('https://www.reddit.com/r/Vue/new.json?sort=new').then((response) => {
       this.$store.dispatch('getPosts', response.data);
+    }).catch((error) => {
+        console.log('axios error: ', error);
     });
   }
 }

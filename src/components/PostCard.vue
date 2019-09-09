@@ -17,7 +17,7 @@
         <p>{{post.data.title}}</p>
       </div>
       <div class="wrapper-icon">
-        <img src="../assets/chevrom-right.svg">
+        <img src="@/assets/chevrom-right.svg">
       </div>
     </div>
     <div class="footer">
@@ -25,7 +25,7 @@
         class="dismiss"
         @click="dismissPost"
       >
-        <img src="../assets/cancel-circle.svg"> Dismiss Post
+        <img src="@/assets/cancel-circle.svg"> Dismiss Post
       </span>
       <span class="comments">{{post.data.num_comments}} Comments</span>
     </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import thumbnail from '../assets/placeholder.jpg';
+import thumbnail from '@/assets/placeholder.jpg';
 import moment from 'moment';
 
 export default {
@@ -53,6 +53,7 @@ export default {
    },
    methods: {
      displayPost: function() {
+       this.$store.dispatch('closeMenu');
        this.$store.dispatch('displayPost', this.index);
      },
      dismissPost: function() {

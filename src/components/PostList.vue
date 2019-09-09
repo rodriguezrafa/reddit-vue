@@ -35,6 +35,7 @@
     methods: {
       dismissAll: function() {
         this.$store.dispatch('dismissAll');
+        this.$store.dispatch('closeMenu');
         this.dismissAllClicked = true;
       }
     },

@@ -4,11 +4,11 @@
       class="menu"
       @click="toggleMenu"
     >
-      <img src="../assets/menu.svg">
+      <img src="@/assets/menu.svg">
     </div>
     <div 
       class="wrapper-list"
-      :class="{'--show': menuVisible}"
+      :class="{'--show': $store.state.menuIsOpen}"
     >
       <PostList :data="this.$store.state.postList" />
     </div>
@@ -24,18 +24,13 @@
 
   export default {
     name: "home",
-    data: function() {
-      return {
-        menuVisible: false,
-      }
-    },
     components: {
       PostList,
       PostDetail,
     },
     methods: {
       toggleMenu: function() {
-        this.menuVisible = !this.menuVisible;
+        this.$store.dispatch('toggleMenu');
       }
     },
   };
@@ -57,6 +52,7 @@
       max-width: 400px;
       text-align: left;
       padding: 0px;
+      min-height: 100vh;
 
       @media (max-width: 992px) {
         position: absolute;
