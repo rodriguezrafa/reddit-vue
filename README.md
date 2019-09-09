@@ -8,14 +8,13 @@ After setting the project up with Vue CLI 3, I usuallu start by creating the com
 
 I created a Trello Kanban board to keep track of each step just for this test because in dayly bases I use Jira but there's no need of creating new branches for such a small project
 
+I spent a bit more of 5 hours. For the pagination I would have use vue-paginate and maybe some js library for the swipe gesture on mobile view but I didn't want to spend time reading some documentation and solve it in a different way.
+
 # Enjoy
 
 1. Layout & Responsiveness
 
     There's a simple flexbox grid. The left column will hide at 992px or less and there will be a toggle menu button to show the post list
-
-    Instead of adding a swipe library for displaying the posts list on mobile I added a hamburger button to toggle the menu. I believe it improves the UX because there's no clue that in mobile is a hidden menu on the left side of the screen
-
 
 2. Initial configurations for vuex
 
