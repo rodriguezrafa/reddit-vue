@@ -4,7 +4,7 @@
       <span 
         :class="['click-indicator', {'--clicked': post.data.clicked}]"></span>
       {{post.data.author}}
-      <span class="date">{{post.data.created}}</span>
+      <span class="date">{{date}} ago</span>
     </h4>
     <div 
       class="body"
@@ -34,6 +34,7 @@
 
 <script>
 import thumbnail from '../assets/placeholder.jpg';
+import moment from 'moment';
 
 export default {
   name: "PostCard",
@@ -60,7 +61,16 @@ export default {
    },
    computed: {
      getThumbnail: function() {
-       return this.post.data.thumbnail || thumbnail;
+       let image = thumbnail;
+       if (this.post.data.thumbnail && this.post.data.thumbnail != 'self' && this.post.data.thumbnail != 'default') {
+         image = this.post.data.thumbnail;
+       }
+       return image;
+     },
+     date: function() {
+       let formatDate = new Date(this.post.data.created*1000);
+       formatDate = moment(formatDate).fromNow(true);
+       return  formatDate; 
      }
    }
 };

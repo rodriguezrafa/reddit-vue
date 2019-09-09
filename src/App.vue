@@ -9,11 +9,9 @@ export default {
   components: {
   },
   created: function() {
-    const localPosts = window.localStorage.getItem('rr_reddit_posts');
-    // just execute action after hitting reddit endpoint, remove payload sent
-    if (!localPosts) {
-      this.$store.dispatch('getPosts', this.$store.state.dummyObject);
-    }
+    this.axios.get('https://www.reddit.com/r/Vue/new.json?sort=new').then((response) => {
+      this.$store.dispatch('getPosts', response.data);
+    });
   }
 }
 </script>

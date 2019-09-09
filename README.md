@@ -25,7 +25,7 @@ I created a Trello Kanban board to keep track of each step just for this test be
 
     Added styles for the SPA, hover transitions, icons (took a bit of time looking for the assets and modifiying them to match the request).
 
-    Also implemented the data in the store to render the post list and the detail showed
+    Also implemented the data in the store to render the post list and the detail showed. The creation date comes in UTC format, so I used moment.js library to get the correct one
 
 4. Post Details.
 
@@ -36,3 +36,10 @@ I created a Trello Kanban board to keep track of each step just for this test be
     To dismiss a single post a vuex action is executed with the  posts index and the only necessary thing if to run a splice methond on the postList with the index. For Dismissing all post another vuex action is execute and it remplaces the postList array with an empty array
 
     There a transition-group tag on the code to allow me to add an effect when a single or all post are removed.
+
+6. Fetching data
+
+    The best and fastest way to fetch data using reddit api was hitting an endpoint (https://www.reddit.com/r/Vue/new.json?sort=new) that give as response an object with the lastes post in the Vue subreddit.
+
+    For fetching the data I used axios in the App.vue component as soon it is created and send the response object to vuex via action to be compared with the localStorage in case it applies or saving the posts list directly
+

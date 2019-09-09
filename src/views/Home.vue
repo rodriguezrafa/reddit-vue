@@ -19,7 +19,6 @@
 </template>
 
 <script>
-  // @ is an alias to /src
   import PostList from "@/components/PostList.vue";
   import PostDetail from "@/components/PostDetail.vue";
 

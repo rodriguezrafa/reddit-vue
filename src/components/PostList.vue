@@ -28,11 +28,7 @@
         dismissAllClicked: false,
       }
     },
-    props: {
-      data: {
-        type: Array,
-      },
-    },
+    props: ['data'],
     components: {
       PostCard,
     },
@@ -79,8 +75,6 @@
         font-weight: normal;
         color: #ce620a;
         transition: color 0.3s;
-
-        
 
         &:hover {
           cursor: pointer;
